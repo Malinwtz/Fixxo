@@ -65,7 +65,7 @@
     <section class="contact-form">
         <div class="container">
             <h1>Come In Contact With Us</h1>
-            <form method="post">
+            <form onsubmit="handleContactForm(event)"> <!-- method="post" -->
                 <div class="contact-form-name">
                     <input id="name" name="name" type="text" placeholder="Your name">
                     <div class="error">You must provide a valid name</div>

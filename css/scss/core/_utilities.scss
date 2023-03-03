@@ -6,13 +6,19 @@ html, body {
     @include default-colors;
 }
 
-.totop-arrow{
+
+.hide {
+    display: none;
+}
+
+#totop-arrow{
+    display: none;
     @include default-colors-with-border;
     position: fixed;
     right: 36px;
     bottom: 36px;
     font-size: 1.5rem;
-    padding: 8px 16px;
+    padding: 7px 16px;
     border-radius: 50%;
     transition: background-color 0.5s, color 0.2s;
     

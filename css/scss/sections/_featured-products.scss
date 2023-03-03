@@ -1,4 +1,4 @@
-.featured-products{
+.product-collection{
     margin-top: 40px;
     .container{
         max-width: 1110px;
@@ -10,17 +10,17 @@
             margin-bottom: 30px;
         }
     }
-    .product-grid {
+    .collection-grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 30px;
-        .product-card {
+        .collection-card {
             box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
             margin: 0px;
             p {
                 margin: 0px;
             }
-            .product-card-img {
+            .card-content {
                 position: relative;
                 img{
                     width: 100%;
@@ -77,36 +77,36 @@
                     text-align: center;
                 }
             }
-            &:hover .product-card-img {
+            &:hover .card-img {
                 display: flex;
-                .product-card-img {
+                .card-img {
                     .product-menu{
                         display: none;
                     }
                 }
             }
-            .product-card-body{
+            .card-body{
                 text-align: center;
             }
 
-            .product-card-cathegory{
+            .cathegory{
                 font-size: 16px;
                 font-weight: 500;
                 color: #616365;
                 margin-top: 15px;
             }
 
-            .product-card-title{
+            .title{
                 font-size: 20px;
                 font-weight: 700;
                 margin-top: 15px;
             }
-            .product-card-rating{
+            .rating{
                 color: #ff7373;
                 font-size: 20px;
                 margin-top: 10px;
             }
-            .product-card-price{
+            .price{
                 font-size: 22px;
                 font-weight: 700;
                 margin-top: 10px;
@@ -118,8 +118,8 @@
 
 
     @media (min-width: 768px){
-        .featured-products {
-            .product-grid {
+        .product-collection {
+            .collection-grid {
                 grid-template-columns: 1fr 1fr 1fr;
                 .product-card {
                     .product-card-img {

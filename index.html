@@ -19,31 +19,38 @@
     <!-- header -->
     <header>
         <div class="container">
-            <a id="logotype" class="logotype" href="index.html">FIXXO.</a>
-
-            <div id="menu" class="collapse">
-                <nav id="menu-links" class="menu-links">
-                    <a class="menu-link" href="index.html">Home</a>
-                    <a class="menu-link" href="product.html">Products</a>
-                    <a class="menu-link" href="contact.html">Contact</a>
+            <a id="logotype" href="index.html">FIXXO.</a> <!-- tagit bort: class="logotype" -->
+        
+            <div id="menu" class="hide">
+                <nav id="menu-links" class="links"> 
+                    <a class="link" href="index.html">Home</a>
+                    <a class="link" href="product.html">Products</a>
+                    <a class="link" href="contact.html">Contact</a>
                 </nav>
                 
-                <nav id="menu-icons" class="menu-icons">
-                    <a class="menu-link" href="#"><i class="fa-regular fa-search"></i></a>
-                    <a class="menu-link" href="#"><i class="fa-regular fa-code-compare"></i></a>
-                    <a class="menu-link" href="#"><i class="fa-regular fa-heart"></i></a>
-                    <a class="menu-link" href="#">
+                <nav id="menu-icons" class="icons">   
+                    <a class="link" href="#"><i class="fa-regular fa-search"></i></a>
+                    <a class="link" href="#"><i class="fa-regular fa-code-compare"></i></a>
+                    <a class="link" href="#"><i class="fa-regular fa-heart"></i></a>
+                    <a class="link" href="#">
                         <i class="fa-regular fa-bag-shopping"></i>
                         <span class="menu-badge">12</span>
                     </a>
+                    <!-- extratillägg som inte är med i mallen -->
+                    <a class="link ms-5" href="#"><i class="fa-regular fa-user"></i></a>  <!-- ms-5 marginal procentuellt bootstrap -->
                 </nav>
             </div>
 
-            <div id="toggle-icon" class="menu-icons">
-                <button class="menu-link" data-bs-toggle="collapse" data-bs-target="#menu">
+            <div id="toggle-icon" class="icons">
+                <!-- knapp med extrasaker: data-toggle="toggle" data-target="#menu" 
+                    #menu ska gå till menyn ovan med id #menu-->
+                <button class="link" data-option="toggle" data-target="#menu">
                     <i class="fa-regular fa-bars"></i>
                 </button>
             </div>
+
+
+
         </div>
     </header>
     
@@ -64,47 +71,44 @@
         </div>
     </section>
 
-    <!-- products -->
-<!--     
-    <section class="featured-products">
+    <!-- feature products -->
+    <section class="product-collection">
         <div class="container">
-            
             <div class="title">Featured Products</div>
+            <div id="featured-products" class="collection-grid">
+                
+                <!-- <div class="collection-card">
+                    <div class="card-content">    
+                        <img src="images/product-images/brown-watch.png">
 
-           <div class="product-grid">
-                <div class="product-card">
+                        <div class="card-menu">
 
-                    <div class="product-card-img">    
-                        <img src="images/product-images/blue-tshirt.png">
+                            <nav class="icons">
+                                <a class="link" href="#"><i class="fa-regular fa-code-compare"></i></a>
+                                <a class="link" href="#"><i class="fa-regular fa-heart"></i></a>
+                                <a class="link" href="#"><i class="fa-regular fa-bag-shopping"></i></a>
+                            </nav>
 
-                        <div class="product-card-menu">
-
-                        <nav class="menu-icons">
-                            <a class="menu-link" href="#"><i class="fa-regular fa-code-compare"></i></a>
-                            <a class="menu-link" href="#"><i class="fa-regular fa-heart"></i></a>
-                            <a class="menu-link" href="#"><i class="fa-regular fa-bag-shopping"></i></a>
-                        </nav>
-
-                        <a href="#" class="btn-theme">QUICK VIEW</a>
+                            <a class="btn-theme" href="#" >QUICK VIEW</a>
                         </div>
                     </div>
 
-                    <div class="product-card-body">
-                        <p class="product-card-cathegory">T-shirts</p>
-                        <p class="product-card-title">Blue T-Shirt</p>
-                        <div class="product-card-rating">
+                    <div class="card-body">
+                        <p class="cathegory">T-shirts</p>
+                        <p class="title">Blue T-Shirt</p>
+                        <div class="rating">
                             <i class="fa-solid fa-sharp fa-star"></i>
                             <i class="fa-solid fa-sharp fa-star"></i>
                             <i class="fa-solid fa-sharp fa-star"></i>
                             <i class="fa-solid fa-sharp fa-star"></i>
                             <i class="fa-regular fa-sharp fa-star"></i>
                         </div>
-                        <p class="product-card-price">$15.00</p>
+                        <p class="price">$15.00</p>
                     </div> 
 
-                </div>
+                </div> -->
               
-                <div class="product-card">
+                <!-- <div class="product-card">
 
                     <div class="product-card-img">    
                         <img src="images/product-images/blue-tshirt.png">
@@ -321,14 +325,14 @@
                     </div> 
 
                 </div>
-              
+               -->
             </div>
 
         </div>
-    </section> -->
+    </section>
 
     <!-- offers -->
-    <section class="container offers">
+    <section class="offers">
         <div class="offer-1">
             
             <div class="column-img">
@@ -404,8 +408,9 @@
     <!-- scrollningsutrymme -->
     <div style="height: 100px"></div>
 
-    <button class="totop-arrow"><i class="fa-solid fa-arrow-up"></i></button>
+    <button id="totop-arrow" class="hide"><i class="fa-solid fa-arrow-up"></i></button>
 
     <script src="js/script.js"></script>
+    <script>getProducts("#product-collection", "featured")</script>
 </body>
 </html>

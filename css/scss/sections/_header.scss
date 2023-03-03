@@ -1,10 +1,11 @@
 header{
-    background-color: $bg-transparent-light-1;
-    box-shadow: 0 0 2px 1px $color-shadow-1;
     position: sticky;
-    top: 0;
+    top: 0; 
     width: 100%;
     z-index: 1;
+    background-color: $bg-transparent-light-1;
+    box-shadow: 0 0 2px 1px $color-shadow-1;
+   
     .container {
         padding-top: 1rem;
         padding-bottom: 1rem;
@@ -13,20 +14,14 @@ header{
         grid-template-areas: "logotype toggleicon"
                              "menu menu";
         
-        @include lg {
+        @include lg { //istället för @media
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: "logotype menu menu";
         }
-        .logotype {
-            border: 1px solid brown;
-            font-size: 2.188em;
-            font-weight: $font-weight-bold;
-            text-decoration: none;
-            color: $color-dark-2;
-        }
-        .menu-links {
+
+        .links {
             border: 1px solid pink;
-            .menu-link {
+            .link {
                 color: $color-dark-2;
                 font-weight: $font-weight-medium;
                 text-decoration: none;
@@ -45,21 +40,22 @@ header{
                 align-items: center;
             }
         }
-        .menu-icons {
-            border: 1px solid greenyellow;
-            margin-top: 2rem;
+        .icons {
             @include content-center;
+
             @include lg {
-                margin-top: 0;
                 justify-content: flex-end;
             }
-            nav {
-                display: none;
-                @include lg {
-                    display: flex;
-                }
-            }
-            .menu-link {
+
+            // nav {
+            //     display: none;
+
+            //     @include lg {
+            //         display: flex;
+            //     }
+            // }
+
+            .link {
                 position: relative;
                 height: 36px;
                 width: 36px;
@@ -71,16 +67,17 @@ header{
                 box-shadow: 0 0 5px 2px $color-shadow-1;
                 margin-left: 1rem;
                 transition: background-color 0.25s, color 0.25s;
+                
                 &:hover,
                 &.active {
                     @include dark-colors;
                     text-decoration: none;
                 }
             }
-            
         }
     }
 }
+
 
 #menu {
     grid-area: menu;
@@ -94,17 +91,32 @@ header{
 }
 #logotype {
     grid-area: logotype;
-}
-#menu-icons {
-    grid-area: menuicons;
-}
-#toggle-icon {
-    grid-area: toggleicon;
-    @include lg {
-        display: none;
-    }
+    font-size: 35px;
+    font-weight: 700;
+    text-decoration: none;
+    color: $color-dark-2;
 }
 #menu-links {
     grid-area: logotype;
 }
+
+#menu-icons {
+    grid-area: menuicons;
+    margin-top: 40px;
+    
+    border: 1px solid brown;
+    @include lg {
+        margin-top: 0;
+    }
+}
+
+#toggle-icon {
+    grid-area: toggleicon;
+    justify-content: flex-end;
+
+    @include lg {
+        display: none;
+    }
+}
+
 
