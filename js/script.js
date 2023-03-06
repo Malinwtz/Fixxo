@@ -71,7 +71,7 @@ async function getProducts(target, tag) {
 
             <div class="card-body">
                 <p class="cathegory">${item.category}</p>
-                <p class="title">${item.title}</p>
+                <p class="title">${item.name}</p>
                 <div class="rating">
                     <i class="fa-solid fa-sharp fa-star"></i>
                     <i class="fa-solid fa-sharp fa-star"></i>
