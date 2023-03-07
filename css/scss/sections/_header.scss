@@ -14,13 +14,18 @@ header{
         grid-template-areas: "logotype toggleicon"
                              "menu menu";
         
-        @include lg { //istället för @media
+        @include lg {
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: "logotype menu menu";
         }
 
         .links {
-            border: 1px solid pink;
+            border: 1px solid pink; 
+            @include lg {
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+            }
             .link {
                 color: $color-dark-2;
                 font-weight: $font-weight-medium;
@@ -34,11 +39,7 @@ header{
                     text-decoration: none;
                 }
             }
-            @include lg {
-                display: flex !important;
-                justify-content: center;
-                align-items: center;
-            }
+           
         }
         .icons {
             @include content-center;
@@ -46,14 +47,6 @@ header{
             @include lg {
                 justify-content: flex-end;
             }
-
-            // nav {
-            //     display: none;
-
-            //     @include lg {
-            //         display: flex;
-            //     }
-            // }
 
             .link {
                 position: relative;
@@ -78,7 +71,13 @@ header{
     }
 }
 
-
+#logotype {
+    grid-area: logotype;
+    font-size: 35px;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    color: $color-dark-2;
+}
 #menu {
     grid-area: menu;
     grid-template-areas: "menulinks"
@@ -89,13 +88,7 @@ header{
         grid-template-areas: "menulinks menuicons";
     }
 }
-#logotype {
-    grid-area: logotype;
-    font-size: 35px;
-    font-weight: 700;
-    text-decoration: none;
-    color: $color-dark-2;
-}
+
 #menu-links {
     grid-area: logotype;
 }
@@ -103,8 +96,7 @@ header{
 #menu-icons {
     grid-area: menuicons;
     margin-top: 40px;
-    
-    border: 1px solid brown;
+    border: 1px dashed brown;
     @include lg {
         margin-top: 0;
     }
