@@ -1,6 +1,5 @@
 .offers {
     margin: 1rem;
-    //max-width: 2670px;
     @include lg {
         display: flex;
         justify-content: center;
@@ -28,11 +27,16 @@
             }
             .offer-image {
                 display: none;
+                transition: opacity 0.2s, box-shadow 0.2s;
+                &:hover {
+                    box-shadow: 0 0 5px 2px $color-shadow-2;
+                    opacity: 90%;
+                } 
                 @include md {
                     display: block;
-                    
                 }
                 a {
+                    
                     img {
                         max-width: 100%;
                         height: auto;
@@ -70,6 +74,7 @@
                     height: 100%;
                 }
                 .offer-50-bigtext {
+ // går det att göra så att texten ökar efter storlek?
                     font-weight: $font-weight-bold;
                     font-size: $font-size-large;
                     line-height: 1.5;
@@ -79,6 +84,12 @@
                     @include lg {
                         font-size: $font-size-semi-large;
                         line-height: none;
+                    }
+                    @include xl {
+                        font-size: $font-size-large;
+                    }
+                    @include xxl {
+                        font-size: $font-size-semi-xl;
                     }
                 }
                 .offer-50-smalltext {
@@ -90,12 +101,16 @@
                         font-size: $font-size-standard;
                     }
                     @include lg {
-                        padding: 0em; 
+                        padding: 0.7em; 
                         font-size: $font-size-small;
                     }
+                    @include xl {
+                        padding: 1em 5em 1em 1em ; 
+                        font-size: $font-size-small;
+                        text-align: end;
+                    }
                     @include xxxl {
-                        padding: 1em 10em 2em 1em;  
-                        text-align: end;                      
+                        padding: 1em 10em 2em 1em;                       
                     }
                 }
                 .button-box {
@@ -138,19 +153,19 @@
                                 width: 15px;
                             }
                         }
-                        // @include xl {
-                        //     padding: 1em 4em;
-                        //     &::before{
-                        //         content: "";
-                        //         height: 25px;
-                        //         width: 25px;
-                        //     }
-                        //     &::after{
-                        //         content: "";
-                        //         height: 25px;
-                        //         width: 25px;
-                        //     }
-                        // }
+                        @include xl {
+                            padding: 1em 4em;
+                            &::before{
+                                content: "";
+                                height: 25px;
+                                width: 25px;
+                            }
+                            &::after{
+                                content: "";
+                                height: 25px;
+                                width: 25px;
+                            }
+                        }
                     }
                 }
             }
@@ -179,6 +194,11 @@
             }
             .offer-image {
                 display: none;
+                transition: opacity 0.2s, box-shadow 0.2s;
+                &:hover {
+                    box-shadow: 0 0px 5px 2px $color-shadow-2;
+                    opacity: 90%;
+                } 
                 @include md {
                     display: block;
                 }
@@ -186,180 +206,10 @@
                     img {
                         max-width: 100%;
                         height: auto;
+                        
                     }
                 }
             }
         }
     }
 }
-//--------------------------------------------
- 
-   
-// .offers {
-//     margin-top: 1rem;
-//     // display: flex;
-//     // justify-content: space-between;
-//     grid-template-columns: 1fr;
-//     gap: 2rem;
-//     @include lg {
-//         display: grid;
-//         grid-template-columns: 1fr 500px 1fr;
-
-//     }
-//     .offer-1 {
-//         height: 10rem;
-//         margin-top: 10px;
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-//         align-items: center;
-//         @include lg {
-//             height: 30rem;
-//         }
-//         .office-style {
-//             height: 100%;
-//             width: 100%;
-//             background-color: #fac4918e;
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: center;
-//             align-items: center;
-//             .small-screen {
-//                 .big-text {
-//                     @include font-title-2;
-//                 }
-//                 a {
-//                     color: $color-dark-1;
-//                 }
-//                 @include lg {
-//                     display: none;
-//                 }
-//             }
-//             .offer-image {
-//                 img { 
-//                     display: none;
-//                     @include xl {
-//                         display: block;
-//                         // width: 30%;
-//                         // height: auto;
-
-//                         max-height: 300px;
-//                         width: auto;
-//                         //object-fit: fit;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-//     .offer-2 {
-//         background-color: $color-light-2;
-//         height: 10rem;
-//         margin: 0.5em 0;
-//         position: relative;
-//         @include xl {
-//             height: 30rem;
-//         }
-//         .offer-50 {
-//             // height: 95%;
-//             // width: 95%;
-//             // display: flex;
-//             // justify-content: center;
-//                position: absolute;
-//                height: 90%;
-//                width: 90%;
-//             // margin: 30px 0;
-//             .frame {
-//                 border: 0.3em solid $color-theme;
-//                 position: absolute;
-//                 height: 100%;
-//                 width: 100%;
-//                 margin: 1em;
-//                 display: flex;
-//                 flex-direction: column;
-//                 justify-content: center;
-//                 text-align: center;
-//                 @include xl {
-//                     height: 93%;
-//                 }
-//                 .offer-bigtext {
-//                     @include font-title-2;
-//                     margin-top: 0;
-//                     @include md {
-//                         //margin-top: 30px;
-//                     }
-//                     @include xl {
-//                         margin: 0px 0;
-//                     }
-//                 }
-//                 .offer-smalltext {
-//                     display: none;
-//                     @include md {    
-//                         @include default-font;
-//                         font-size: 0.8em;
-//                         text-align:end;
-//                         //margin: 5px 75px 20px 0;
-//                     }
-//                     @include xl {
-//                         display: block;
-//                     }
-//                 }
-//                 .button-box{
-//                     .button-50 {
-//                         @include md {
-//                             // height: 30px;
-                            
-//                         }
-//                         @include xl {
-//                             // height: 30px;
-//                             // width: 90px;
-//                         }
-//                     }
-//                 }
-//             }            
-//         }
-//     }
-//     .offer-3 {
-//         height: 200px;
-//         margin-top: 10px;
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-//         align-items: center;
-//         @include lg {
-//             height: 300px;
-//         }
-//         .party-style {
-//             height: 100%;
-//             width: 100%;
-//             background-color: #f0c66bdc;
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: center;
-//             align-items: center;
-//             .small-screen {
-//                 .big-text {
-//                     @include font-title-2;
-//                 }
-//                 a {
-//                     color: $color-dark-1;
-//                 }
-//                 @include lg {
-//                     display: none;
-//                 }
-//             }
-//             .offer-image {
-//                 img { 
-//                     display: none;
-//                     @include lg {
-//                         display: block;
-//                         max-height: 300px;
-//                         width: auto;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-// //--------------------------------------------
- 
-   
