@@ -88,6 +88,54 @@ async function getProducts(target, tag) {
     }
 }
 
+
+//HÄMTA ALLA PRODUKTER
+async function getAllProducts(target) {
+    const element = document.querySelector(target)
+
+    const res = await fetch(`https://kyh-net22.azurewebsites.net/api/products`)
+    const data = await res.json()
+    
+
+    for(let item of data) {
+        element.innerHTML +=
+        `
+            <div class="collection-card">
+            <div class="card-content">    
+                <img src="${item.imageUrl}" alt="${item.name}">
+
+                <div class="card-menu">
+
+                    <nav class="icons">
+                        <a class="link" href="#"><i class="fa-regular fa-code-compare"></i></a>
+                        <a class="link" href="#"><i class="fa-regular fa-heart"></i></a>
+                        <a class="link" href="#"><i class="fa-regular fa-bag-shopping"></i></a>
+                    </nav>
+
+                    <a class="btn-theme" href="#" >QUICK VIEW</a>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <p class="cathegory">${item.category}</p>
+                <p class="title">${item.name}</p>
+                <div class="rating">
+                    <i class="fa-solid fa-sharp fa-star"></i>
+                    <i class="fa-solid fa-sharp fa-star"></i>
+                    <i class="fa-solid fa-sharp fa-star"></i>
+                    <i class="fa-solid fa-sharp fa-star"></i>
+                    <i class="fa-regular fa-sharp fa-star"></i>
+                </div>
+                <p class="price">${item.originalPrice} ${item.currency}</p>
+            </div> 
+
+        </div>
+
+        `
+    }
+}
+
+
 //SKICKA TILL API
 
 async function handleContactForm(e) {
