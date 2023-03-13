@@ -1,5 +1,5 @@
 
-.title-new {
+.title-popular {
     margin-top: 40px;
     font-size: $font-size-medium;
     font-weight: $font-weight-bold;
@@ -15,19 +15,19 @@
     }
 }
 
-.product-collection-new {
+.product-collection-popular {
+    
     display: flex;
     justify-content: center;
-    .new-products {
+    .popular-products {
         margin: 20px 10px;
         width: 100%;
         max-width: 1400px;
-      
         @include lg {
             display: grid;
             grid-template-columns: 1fr 1fr;
         }
-        .left-column {
+        .right-column {
             background-color: $color-light-4;
             display: flex;
             flex-direction: column;
@@ -75,7 +75,7 @@
                 }
             }
         }
-        .right-column {
+        .left-column {
             padding: 2em 0em;
             text-align: center;
             @include lg {
@@ -213,6 +213,7 @@
                     }
                 }
             }
+            
         }
     }
 }

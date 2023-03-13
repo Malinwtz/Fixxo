@@ -11,7 +11,7 @@
    <link rel="stylesheet" href="https://kit.fontawesome.com/41c8b474e2.css" crossorigin="anonymous">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-   <link rel="stylesheet" href="css/style.min.css">
+   <link rel="stylesheet" href="src/css/style.min.css">
 
 
    <title>Contact Us - Fixxo.</title>
@@ -19,48 +19,44 @@
 <body>
     
 <!-- header -->
-    <header>
-        <div class="container">
-            <a id="logotype" href="index.html">FIXXO.</a> 
-        
-            <div id="menu" class="hide">
-                <nav id="menu-links" class="links"> 
-                    <a class="link" href="index.html">Home</a>
-                    <a class="link" href="products.html">Products</a>
-                    <a class="link" href="contact.html">Contact</a>
-                </nav>
-                
-                <nav id="menu-icons" class="icons">   
-                    <a class="link" href="#"><i class="fa-regular fa-search"></i></a>
-                    <a class="link" href="#"><i class="fa-regular fa-code-compare"></i></a>
-                    <a class="link" href="#"><i class="fa-regular fa-heart"></i></a>
-                    <a class="link" href="#">
-                        <i class="fa-regular fa-bag-shopping"></i>
-                        <span class="menu-badge">12</span>
-                    </a>
-                </nav>
-            </div>
-
-            <div id="toggle-icon" class="icons">  <!-- knapp med extrasaker: data-toggle="toggle" data-target="#menu"  #menu ska gå till menyn ovan med id #menu-->
-                <button class="link" data-option="toggle" data-target="#menu">
-                    <i class="fa-regular fa-bars"></i>
-                </button>
-            </div>
-
+<header>
+    <div class="container">
+        <a id="logotype" href="index.html">FIXXO.</a>        
+        <div id="menu" class="hide">
+            <nav id="menu-links" class="links"> 
+                <a class="link" href="index.html">Home</a>
+                <a class="link" href="products.html">Products</a>
+                <a class="link" href="contact.html">Contact</a>
+            </nav>    
+            <nav id="menu-icons" class="icons">   
+                <a class="link" href="#"><i class="fa-regular fa-search"></i></a>
+                <a class="link" href="#"><i class="fa-regular fa-code-compare"></i></a>
+                <a class="link" href="#"><i class="fa-regular fa-heart"></i></a>
+                <a class="link" href="#">
+                    <i class="fa-regular fa-bag-shopping"></i>
+                    <span class="menu-badge">12</span>
+                </a>
+            </nav>
         </div>
-    </header>
-    
+        <div id="toggle-icon" class="icons">
+            <button class="link" data-option="toggle" data-target="#menu">
+                <i class="fa-regular fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
 
-<!-- breadcrumb navigering -->    
-        <section class="breadcrumb">
-            <div class="container">
-                <ul>
-                    <li><a class="menu-link" href="index.html">Home</a></li>
-                    <li class="active">Contact</li>
-                </ul>
-            </div>
-        </section>
     
+<!-- breadcrumb navigering -->    
+    <section class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a class="menu-link" href="index.html">Home &gt;</a></li>
+                <li class="active">Contact</li>
+            </ul>
+        </div>
+    </section>
+
 <!-- googlemaps -->
     <section class="google-maps">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16292.046440896542!2d18.0244707!3d59.30781050000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77b0beefc103%3A0xc59f69572dee730f!2sLiljeholmen%2C%20H%C3%A4gersten-Liljeholmen%2C%20Stockholm!5e0!3m2!1ssv!2sse!4v1676467043216!5m2!1ssv!2sse" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -70,24 +66,38 @@
     <section class="contact-form">
         <div class="container">
             <h1>Come In Contact With Us</h1>
-            <form onsubmit="handleContactForm(event)"> <!-- method="post" -->
+            <form novalidate> 
+                
                 <div class="contact-form-name">
-                    <input id="name" name="name" type="text" placeholder="Your name">
-                    <div class="error">You must provide a valid name</div>
+                    <input id="name" name="name" type="text" placeholder="Name" required onkeyup="validateName()">
+                    <div id="name-error" class="error"></div>
                 </div>
+                
                 <div class="contact-form-email">
-                    <input id="email" name="email" type="email" placeholder="Your mail">  
-                    <div class="error">You must provide a valid email</div>
+                    <input id="email" name="email" type="email" placeholder="Email" required onkeyup="validateEmail()">  
+                    <div id="email-error" class="error"></div>
                 </div>
+                
                 <div class="contact-form-comments">
-                    <textarea id="comments" name="comments" placeholder="Comments"></textarea>
-                    <div class="error">You must provide a comment</div>
+                    <textarea id="comments" name="comments" placeholder="Comment" required onkeyup="validateComments()"></textarea>
+                    <div id="comments-error" class="error"></div>
                 </div>              
-                <button class="btn-theme" type="submit">Post Comments</button>
+                
+                <div class="contact-form-submit">
+                    <button class="btn-theme" type="submit" onclick="return validateForm()" >Post Comments</button>
+                    <div id="submit-error" class="error"></div>    
+                </div>
+            
             </form>
         </div>
     </section>
 
+
+
+
+
+
+    
 <!-- footer -->
 <section class="container footer-head">
     <div class="footer-info">
@@ -133,5 +143,6 @@
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> -->
     <script src="js/script.js"></script>
+    <script src="js/validate.js"></script>
 </body>
 </html>

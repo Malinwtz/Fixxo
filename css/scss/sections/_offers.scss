@@ -1,8 +1,10 @@
 .offers {
     margin: 1rem;
+    margin-top: 4rem;
     @include lg {
         display: flex;
         justify-content: center;
+        margin-top: 6rem;
     }
     .offer-1 {
         background-color: $color-offer-1-light;

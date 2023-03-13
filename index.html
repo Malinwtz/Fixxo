@@ -18,15 +18,13 @@
 <!-- header -->
     <header>
         <div class="container">
-            <a id="logotype" href="index.html">FIXXO.</a> 
-        
+            <a id="logotype" href="index.html">FIXXO.</a>        
             <div id="menu" class="hide">
                 <nav id="menu-links" class="links"> 
                     <a class="link" href="index.html">Home</a>
                     <a class="link" href="products.html">Products</a>
                     <a class="link" href="contact.html">Contact</a>
-                </nav>
-                
+                </nav>    
                 <nav id="menu-icons" class="icons">   
                     <a class="link" href="#"><i class="fa-regular fa-search"></i></a>
                     <a class="link" href="#"><i class="fa-regular fa-code-compare"></i></a>
@@ -37,22 +35,16 @@
                     </a>
                 </nav>
             </div>
-
             <div id="toggle-icon" class="icons">
-                <!-- knapp med extrasaker: data-toggle="toggle" data-target="#menu" 
-                    #menu ska gå till menyn ovan med id #menu-->
                 <button class="link" data-option="toggle" data-target="#menu">
                     <i class="fa-regular fa-bars"></i>
                 </button>
             </div>
-
-
-
         </div>
     </header>
     
 <!-- showcase -->
-    <!-- <section class="showcase">
+    <section class="showcase">
         <div class="container">
             <div class="column-1">
                 <div class="content">
@@ -66,7 +58,7 @@
                 <img src="images/showcase-img.png" alt="showcase image">
             </div>
         </div>
-    </section> -->
+    </section>
 
 <!-- featured products -->
     <section class="product-collection">
@@ -74,43 +66,12 @@
             <div class="title">Featured Products</div>
             <div id="featured-products" class="collection-grid">
                 
-                 <!-- <div class="collection-card">
-                    <div class="card-content">    
-                        <img src="images/product-images/brown-watch.png">
-
-                        <div class="card-menu">
-
-                            <nav class="icons">
-                                <a class="link" href="#"><i class="fa-regular fa-code-compare"></i></a>
-                                <a class="link" href="#"><i class="fa-regular fa-heart"></i></a>
-                                <a class="link" href="#"><i class="fa-regular fa-bag-shopping"></i></a>
-                            </nav>
-
-                            <a class="btn-theme" href="#" >QUICK VIEW</a>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        <p class="cathegory">T-shirts</p>
-                        <p class="title">Blue T-Shirt</p>
-                        <div class="rating">
-                            <i class="fa-solid fa-sharp fa-star"></i>
-                            <i class="fa-solid fa-sharp fa-star"></i>
-                            <i class="fa-solid fa-sharp fa-star"></i>
-                            <i class="fa-solid fa-sharp fa-star"></i>
-                            <i class="fa-regular fa-sharp fa-star"></i>
-                        </div>
-                        <p class="price">$15.00</p>
-                    </div> 
-
-                </div>  -->
             </div>
-
         </div>
     </section>
 
 <!-- offers -->
-     <!-- <section class="offers">
+    <section class="offers">
         <div class="offer-1">
             <div class="office-style">
 
@@ -152,16 +113,15 @@
                 
              </div>
         </div>
-
     </section>
 
- 
-      -->
 
 <!-- Product-grid-new  -->
+    <div class="title-new container">New products</div>
 
-    <section class="product-collection-2">
+    <section class="product-collection-new">
         <div class="new-products">
+
             <div class="left-column">
                 <div class="text">2 FOR USD $29</div>
                 <div class="button-box">
@@ -179,6 +139,27 @@
     </section>
    
 <!-- Product-grid-popular -->
+
+<div class="title-popular container">Popular products</div>
+
+    <section class="product-collection-popular">
+        <div class="popular-products">
+
+            <div class="left-column">
+                <div id="popular-products" class="collection-grid">
+                    
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="text">2 FOR USD $49</div>
+                <div class="button-box">
+                    <a class="btn-light button-new" href="#">POPULAR PRODUCTS</a>
+                </div>
+            </div>
+           
+        </div>
+    </section>
 
 <!-- footer -->
     <section class="container footer-head">
@@ -224,5 +205,42 @@
     <script src="js/script.js"></script>
     <script>getProducts("#featured-products", "featured")</script>
     <script>getProducts("#new-products", "new")</script>
+    <script>getProducts("#popular-products", "popular")</script>
 </body>
 </html>
+
+
+
+
+
+
+      <!-- <div class="collection-card">
+                    <div class="card-content">    
+                        <img src="images/product-images/brown-watch.png">
+
+                        <div class="card-menu">
+
+                            <nav class="icons">
+                                <a class="link" href="#"><i class="fa-regular fa-code-compare"></i></a>
+                                <a class="link" href="#"><i class="fa-regular fa-heart"></i></a>
+                                <a class="link" href="#"><i class="fa-regular fa-bag-shopping"></i></a>
+                            </nav>
+
+                            <a class="btn-theme" href="#" >QUICK VIEW</a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <p class="cathegory">T-shirts</p>
+                        <p class="title">Blue T-Shirt</p>
+                        <div class="rating">
+                            <i class="fa-solid fa-sharp fa-star"></i>
+                            <i class="fa-solid fa-sharp fa-star"></i>
+                            <i class="fa-solid fa-sharp fa-star"></i>
+                            <i class="fa-solid fa-sharp fa-star"></i>
+                            <i class="fa-regular fa-sharp fa-star"></i>
+                        </div>
+                        <p class="price">$15.00</p>
+                    </div> 
+
+                </div>  -->

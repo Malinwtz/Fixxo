@@ -4,8 +4,7 @@ header{
     width: 100%;
     z-index: 1;
     background-color: $bg-transparent-light-1;
-    box-shadow: 0 0 2px 1px $color-shadow-1;
-   
+    box-shadow: 0 0 2px 1px $color-shadow-1; 
     .container {
         padding-top: 1rem;
         padding-bottom: 1rem;
@@ -18,49 +17,85 @@ header{
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: "logotype menu menu";
         }
-
-        .links {
-            border: 1px solid pink; 
+        #logotype {
+            grid-area: logotype;
+            font-size: 35px;
+            font-weight: $font-weight-bold;
+            text-decoration: none;
+            color: $color-dark-2;
+        }
+        #menu {
+            grid-area: menu;
+            grid-template-areas: "menulinks"
+                                 "menuicons";
             @include lg {
-                display: flex !important;
-                justify-content: center;
-                align-items: center;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: "menulinks menuicons";
             }
-            .link {
-                color: $color-dark-2;
-                font-weight: $font-weight-medium;
-                text-decoration: none;
-                margin: 10px 12px;
-                display: block;
-                transition: color 0.1s;
-                &:hover,
-                &.active {
-                    color: $color-theme;
+            .links {
+                @include lg {
+                    display: flex !important;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .link {
+                    color: $color-dark-2;
+                    font-weight: $font-weight-medium;
                     text-decoration: none;
+                    margin: 10px 12px;
+                    display: block;
+                    transition: color 0.1s;
+                    &:hover,
+                    &.active {
+                        color: $color-theme;
+                        text-decoration: none;
+                    }
                 }
             }
-           
-        }
-        .icons {
-            @include content-center;
-
-            @include lg {
-                justify-content: flex-end;
-            }
-
-            .link {
-                position: relative;
-                height: 36px;
-                width: 36px;
+            .icons {
                 @include content-center;
-                @include default-colors;
+                @include lg {
+                    justify-content: flex-end;
+                }
+                .link {
+                    position: relative;
+                    height: 36px;
+                    width: 36px;
+                    @include content-center;
+                    @include default-colors;
+                    border-radius: 50%;
+                    border: none;
+                    text-decoration: none;
+                    box-shadow: 0 0 5px 2px $color-shadow-1;
+                    margin-left: 1rem;
+                    transition: background-color 0.25s, color 0.25s;                 
+                    &:hover,
+                    &.active {
+                        @include dark-colors;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        #toggle-icon {
+            grid-area: toggleicon;
+            justify-self: end;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include lg {
+                display: none;
+            }
+            .link{
                 border-radius: 50%;
                 border: none;
                 text-decoration: none;
-                box-shadow: 0 0 5px 2px $color-shadow-1;
-                margin-left: 1rem;
-                transition: background-color 0.25s, color 0.25s;
-                
+                box-shadow: 0 0 10px 2px $color-shadow-1;    
+                height: 36px;
+                width: 36px;
+                @include default-colors;
+                transition: background-color 0.25s, color 0.25s;                 
                 &:hover,
                 &.active {
                     @include dark-colors;
@@ -71,44 +106,17 @@ header{
     }
 }
 
-#logotype {
-    grid-area: logotype;
-    font-size: 35px;
-    font-weight: $font-weight-bold;
-    text-decoration: none;
-    color: $color-dark-2;
-}
-#menu {
-    grid-area: menu;
-    grid-template-areas: "menulinks"
-                         "menuicons";
-    @include lg {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: "menulinks menuicons";
-    }
-}
-
 #menu-links {
-    grid-area: logotype;
+     grid-area: menulinks; 
 }
 
 #menu-icons {
     grid-area: menuicons;
     margin-top: 40px;
-    border: 1px dashed brown;
     @include lg {
         margin-top: 0;
     }
 }
 
-#toggle-icon {
-    grid-area: toggleicon;
-    justify-content: flex-end;
-
-    @include lg {
-        display: none;
-    }
-}
 
 

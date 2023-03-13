@@ -1,0 +1,78 @@
+.contact-form {
+    display: flex;
+    justify-content: center;
+    .container{
+        box-shadow: 0,0,10px,5px rgba(0,0,0,4);
+        margin: 1rem 0rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            margin: 1rem; 
+         }
+        form{
+            width: 100%;
+            @include md {
+                display: grid;
+                gap: 30px;
+                grid-template-areas: "c1 c2"
+                "c3 c3"
+                "c4 c4";
+            }
+            .contact-form-name{
+                grid-area: c1;
+                #name{
+                    width: 100%;
+                }
+                .error{
+                    min-height: 2em;
+                    color: red;
+                }
+                .fas{
+                    color: green;
+                }
+            }
+            .contact-form-email{
+                grid-area: c2;
+                #email{
+                    width: 100%;
+                }
+                .error{
+                    min-height: 2em;
+                    color: red;
+                }
+                .fas{
+                    color: green;
+                }
+            }
+             .contact-form-comments{
+                grid-area: c3;
+                width: 100%;
+                #comments{
+                    width: 100%;
+                }
+                .error{
+                    min-height: 2em;
+                    color: red;
+                }
+                .fas{
+                    color: green;
+                }
+            }
+            .contact-form-submit{
+                grid-area: c4;
+                .btn-theme{
+                border: none;
+                width: 100%;
+                }
+                .error{
+                    min-height: 2em;
+                }
+                
+            }
+            
+        }
+    }
+}
+        

@@ -8,13 +8,14 @@
 
 /* //sections */
 
-//@import 'sections/breadcrumb';
+@import 'sections/breadcrumb';
+@import 'sections/contact-form';
 @import 'sections/google-maps';
 @import 'sections/header';
 @import 'sections/showcase';
 @import 'sections/featured-products';
 @import 'sections/new-products';
-
+@import 'sections/popular-products';
 @import 'sections/offers';
-@import 'sections/footer';
 
+@import 'sections/footer';
