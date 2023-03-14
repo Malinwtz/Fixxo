@@ -102,3 +102,63 @@ function validateForm(){
     sumbitError.innerHTML = 'Comment sent!';
     return true;
 }
+//_________________________________________________________________________
+
+async function handleContactForm(e) {
+    e.preventDefault()  //förhindra standardbeteende
+    const errors = []   //listar false
+    const errorMessage = document.getElementById('errorMessage')    //hämtar elementet errormessage
+    errorMessage.innerHTML = ''
+
+    for(let element of e.target) {
+        if(element.required) {  //skapa en errorlist - för varje element som är required läggs det till i listan
+            const errorElement = document.getElementById(`${element.id}-error`)
+            
+            if (element.value.length === 0) {               //om elementets längd är 0 - skriv ut att elementet är required
+                errorElement.innerHTML = `${element.id} is required.`
+                errors.push(false)                              //skicka in en false i errors-listan
+            } else {                                           //annars - skriv inte ut något
+                errorElement.innerHTML = ``
+
+                switch(element.type) {
+                    case 'name':                        //lagt till case name
+                        errors.push(validateName())
+                        break;
+                    case 'email':                              //beroende på vad det är för typ av element 
+                        errors.push(validateEmail())        //validera elementet - skicka true eller false till errors
+                        break
+                    case 'comments':
+                        errors.push(validateComments())   //tagit bort comments från mellan parenteserna i funktionen
+                        break
+                }
+            }
+        }
+    }
+
+    if (!errors.includes(false)) {              //om errors inte innehåller false- värden
+ 
+        const data = {
+            name: e.target['name'].value,
+            email: e.target['email'].value,
+            comments: e.target['comments'].value
+        }
+
+            //skicka formuläret:
+        const res = await fetch('https://kyh-net22.azurewebsites.net/api/contacts', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Autorization': `bearer ${sessionStorage.getItem("accessToken")}`
+            },
+            body: JSON.stringify(data)
+        })
+
+        if (res.status === 200) {
+           const result = await res.text()
+           sessionStorage.setItem('accessToken', result)
+
+        } else {
+            errorMessage.innerHTML = 'Incorrect email or password'
+        }
+    }
+}
