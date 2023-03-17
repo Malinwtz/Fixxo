@@ -83,7 +83,7 @@ async function getProducts(target, tag) {
                 <div class="rating">
                     ${createStarRating(item.starRating)}
                 </div>
-                <p class="price">${item.originalPrice} ${item.currency}</p>
+                <p class="price">$${item.originalPrice}</p>
             </div> 
 
         </div>
@@ -126,7 +126,7 @@ async function getAllProducts(target) {
                 <div class="rating">
                     ${createStarRating(item.starRating)}
                 </div>
-                <p class="price">${item.originalPrice} ${item.currency}</p>
+                <p class="price">$${item.originalPrice}</p>
             </div> 
 
         </div>

@@ -8,13 +8,22 @@
     }
     .offer-1 {
         background-color: $color-offer-1-light;
-        text-align: center;
+        text-align: center; 
+        transition: opacity 0.2s, box-shadow 0.2s;
+        &:hover {
+            box-shadow: 0 0 5px 2px $color-shadow-2;
+            opacity: 85%;
+        } 
         @include md{
             background-color: $color-offer-1;
+            &:hover {
+                box-shadow: 0 0 0px 0px $color-shadow-2;
+                opacity: 100%;
+            } 
         }
         .office-style {
             .text-column {
-                padding: 2rem;
+                padding: 2rem; 
                 @include md {
                     display: none;
                 }
@@ -76,7 +85,6 @@
                     height: 100%;
                 }
                 .offer-50-bigtext {
- // går det att göra så att texten ökar efter storlek?
                     font-weight: $font-weight-bold;
                     font-size: $font-size-large;
                     line-height: 1.5;
@@ -176,8 +184,17 @@
     .offer-3 {      
         background-color: $color-offer-3-light;
         text-align: center;
+        transition: opacity 0.2s, box-shadow 0.2s;
+        &:hover {
+            box-shadow: 0 0 5px 2px $color-shadow-2;
+            opacity: 85%;
+        } 
         @include md{
             background-color: $color-offer-3;
+            &:hover {
+                box-shadow: 0 $color-shadow-2;
+                opacity: 100%;
+            } 
         }
         .party-style {
             .text-column {
