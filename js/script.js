@@ -6,23 +6,19 @@ arrow.addEventListener('click', function(){
    window.scrollTo({ top: 0, behavior: "smooth"}) 
 })
 
-
-window.addEventListener('scroll', function() { //self-function utan namn
-    //hämta vår position
+//scroll-function//self-function utan namn
+window.addEventListener('scroll', function() { 
+    //get position
     const scrollPosY = window.scrollY
 
     if(scrollPosY >= 100) {
-        arrow.style.display = "block"  //gör till ett blockelement
-        //arrow.classList.remove('hide')
-        //pilen ska ej vara responsiv - behöver inte använda klassen
+        arrow.style.display = "block";
     } else {
-        arrow.style.display = "none"  //dölj 
-        //arrow.classList.add('hide')
+        arrow.style.display = "none";  
     }
-})   //lyssna på ett element. BOM browser object model - webbfönstret
+})   
 
 
-//kan vara en separat fil för de filerna som ska ha trycatch
 try {
     const toggleButton = document.querySelector('[data-option="toggle"]') 
     //vad vill vi hämta:
@@ -42,13 +38,25 @@ try {
 
 } catch {}
 
+
+//star rating*******************************************************************************
+function createStarRating(rating) {
+    //                                      callback function - för varje element i stars
+    const stars = Array.from({ length: 5 }, (_, index) => {
+        const starClass = index < rating ? "fa-solid" : "fa-regular";
+        return `<i class="fa-sharp fa-star ${starClass}"></i>`;
+    });
+  
+    return stars.join("");
+  }
+  
+
 //HÄMTA PRODUKTER
 async function getProducts(target, tag) {
     const element = document.querySelector(target)
 
     const res = await fetch(`https://kyh-net22.azurewebsites.net/api/products/${tag}`)
     const data = await res.json()
-    
 
     for(let item of data) {
         element.innerHTML +=
@@ -73,11 +81,7 @@ async function getProducts(target, tag) {
                 <p class="cathegory">${item.category}</p>
                 <p class="title">${item.name}</p>
                 <div class="rating">
-                    <i class="fa-solid fa-sharp fa-star"></i>
-                    <i class="fa-solid fa-sharp fa-star"></i>
-                    <i class="fa-solid fa-sharp fa-star"></i>
-                    <i class="fa-solid fa-sharp fa-star"></i>
-                    <i class="fa-regular fa-sharp fa-star"></i>
+                    ${createStarRating(item.starRating)}
                 </div>
                 <p class="price">${item.originalPrice} ${item.currency}</p>
             </div> 
@@ -120,11 +124,7 @@ async function getAllProducts(target) {
                 <p class="cathegory">${item.category}</p>
                 <p class="title">${item.name}</p>
                 <div class="rating">
-                    <i class="fa-solid fa-sharp fa-star"></i>
-                    <i class="fa-solid fa-sharp fa-star"></i>
-                    <i class="fa-solid fa-sharp fa-star"></i>
-                    <i class="fa-solid fa-sharp fa-star"></i>
-                    <i class="fa-regular fa-sharp fa-star"></i>
+                    ${createStarRating(item.starRating)}
                 </div>
                 <p class="price">${item.originalPrice} ${item.currency}</p>
             </div> 
@@ -138,25 +138,25 @@ async function getAllProducts(target) {
 
 //SKICKA TILL API
 
-async function handleContactForm(e) {
-    e.preventDefault()
+// async function handleContactForm(e) {
+//     e.preventDefault()
 
-    const form = {
-        name: "Malin",
-        email: "mal3eine@hotmail.com",
-        comments: "Jag vill bli kontaktad."
-    }
+//     const form = {
+//         name: "Malin",
+//         email: "mal3eine@hotmail.com",
+//         comments: "Jag vill bli kontaktad."
+//     }
     
-    // skicka formuläret:
-    const res = await fetch('https://kyh-net22.azurewebsites.net/api/contacts', {
-        method: 'post',
-        headers: {
-            'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify(form)
-    })
+//     // skicka formuläret:
+//     const res = await fetch('https://kyh-net22.azurewebsites.net/api/contacts', {
+//         method: 'post',
+//         headers: {
+//             'Content-Type' : 'application/json'
+//         },
+//         body: JSON.stringify(form)
+//     })
     
-    if(res.status === 200)
-        console.log('tack för din förfrågan!')
+//     if(res.status === 200)
+//         console.log('tack för din förfrågan!')
 
-}
+// }
